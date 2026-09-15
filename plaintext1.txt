@@ -1,0 +1,1 @@
+Ein guter Zufallszahlengenerator ist zentral für die Sicherheit.
