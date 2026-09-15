@@ -1,0 +1,1 @@
+Seeding eines Zufallszahlengenerators kann gefährlich sein!
