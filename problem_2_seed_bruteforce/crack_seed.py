@@ -1,5 +1,3 @@
-"""Brute-force the random.seed() value that produced the AES key of the second ciphertext."""
-
 import base64
 import pathlib
 import random

@@ -1,5 +1,3 @@
-"""Decrypt the first ciphertext with the key reconstructed in determine_key.py."""
-
 import base64
 import pathlib
 
