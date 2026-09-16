@@ -1,5 +1,3 @@
-"""Find the RANDU seed whose first hex digit is '7' and build the AES key from it."""
-
 import pathlib
 import sys
 
