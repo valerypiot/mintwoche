@@ -1,9 +1,6 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <time.h>
+#include <openssl/evp.h>
+#include <openssl/rand.h>
 
-int main() {
-    time_t timestamp;
-    time(&timestamp);
-    printf("Current timestamp: %ld\n", (long)timestamp);
-    return 0;
-}
