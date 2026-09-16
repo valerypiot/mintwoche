@@ -1,9 +1,9 @@
+import pathlib
 import secrets
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-value = secrets.randbelow(100)
+PLOTS = pathlib.Path(__file__).resolve().parent.parent / "plots"
 
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
@@ -24,4 +24,4 @@ for i in range(p_num):
 
 kp = points.T 
 ax.scatter(kp[0], kp[1], kp[2], s=1)
-fig.savefig('plot_secrets.png', dpi=150)
+fig.savefig(PLOTS / 'secrets.png', dpi=150)

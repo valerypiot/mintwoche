@@ -1,3 +1,2 @@
-randu/__pycache__/
-randu.egg-info/
-__pycache__
+__pycache__/
+*.egg-info/

@@ -1,6 +1,10 @@
+"""Decrypt the first ciphertext with the key reconstructed in determine_key.py."""
+
+import base64
+import pathlib
+
 from Cryptodome.Cipher import AES
 from Cryptodome.Util import Padding
-import base64
 
 cipher = AES.new(b"75fd75fd75fd75fd", AES.MODE_ECB)
 
@@ -10,7 +14,8 @@ result_txt = Padding.unpad(cipher.decrypt(cipher_txt), 16)
 
 r = result_txt.decode()
 
-with open("plaintext1.txt", "w") as f: 
+out = pathlib.Path(__file__).resolve().parent / "plaintext.txt"
+with open(out, "w") as f:
     f.write(r)
 
 print(r)

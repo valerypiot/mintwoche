@@ -1,6 +1,12 @@
+import pathlib
+import sys
+
+sys.path.append(str(pathlib.Path(__file__).resolve().parent.parent))
 import rng_randu
 import matplotlib.pyplot as plt
 import numpy as np
+
+PLOTS = pathlib.Path(__file__).resolve().parent.parent / "plots"
 
 randu = rng_randu.Randu()
 
@@ -25,4 +31,4 @@ for i in range(p_num):
 
 kp = points.T 
 ax.scatter(kp[0], kp[1], kp[2], s=1)
-fig.savefig('plot.png', dpi=150)
+fig.savefig(PLOTS / 'randu.png', dpi=150)

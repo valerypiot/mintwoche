@@ -1,8 +1,9 @@
+import pathlib
 import random
 import matplotlib.pyplot as plt
 import numpy as np
 
-value = random.random()
+PLOTS = pathlib.Path(__file__).resolve().parent.parent / "plots"
 
 random.seed(1)
 
@@ -25,4 +26,4 @@ for i in range(p_num):
 
 kp = points.T 
 ax.scatter(kp[0], kp[1], kp[2], s=1)
-fig.savefig('plot_random.png', dpi=150)
+fig.savefig(PLOTS / 'random.png', dpi=150)
