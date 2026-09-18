@@ -7,8 +7,7 @@ ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.-;:_
 cipher_txt = base64.b64decode("xDjRYCkTVn8NnFBcDHKP0AFg5LA2qvOb4iCGLYLsXDpcGCyZg26yDKbrzm4ijMq7amYwFhqgdLOjIKQe57dT9g==")
 results = []
 
-# random.seed(random.randrange(1000000))
-
+# -- generate key --
 def keygen(seed): 
     random.seed(seed)
     
@@ -20,21 +19,30 @@ def keygen(seed):
 
     return key
 
+# -- find plaintext with key --
 def find_plaintext(key): 
     cipher = AES.new(key, AES.MODE_ECB)
 
     try: 
         result_txt = Padding.unpad(cipher.decrypt(cipher_txt), 16)
         results.append(result_txt.decode())
+        print("Possible plaintext found.")
         
     except Exception: 
         pass 
 
-for seed in range(1000000): 
-    find_plaintext(keygen(seed).encode())
+# -- trying 1 million keys --
+if __name__ == "__main__": 
+    print("Cooking...")
+    
+    for seed in range(1000000): 
+        if seed % 100000 == 0 and seed > 0: 
+            print(f"Tried {seed} keys...")
+        
+        find_plaintext(keygen(seed).encode())
 
-with open("plaintext2.txt", "w") as f: 
-    for r in results: 
-        f.write(r + "\n")
+    with open("plaintext2.txt", "w") as f: 
+        for r in results: 
+            f.write(r + "\n")
 
-print(results)
+    print(results[0])
